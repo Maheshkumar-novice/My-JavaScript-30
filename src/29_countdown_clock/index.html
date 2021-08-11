@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="timer">
+      <div class="timer_controls">
+        <button class="timer__button" data-time="30">30 Secs</button>
+        <button class="timer__button" data-time="1500">Work 25</button>
+        <button class="timer__button" data-time="300">Break 5</button>
+        <button class="timer__button" data-time="900">Long Break 15</button>
+        <button class="timer__button" data-time="reset">Reset</button>
+        <form name="customForm" id="custom">
+          <input
+            type="text"
+            name="minutes"
+            placeholder="Enter Minutes"
+            autofocus
+          />
+        </form>
+      </div>
+      <div class="display">
+        <h1 class="display_time-left">00:00</h1>
+        <p class="display_end-time">Start The Timer!</p>
+        <p class="stop-sound"></p>
+      </div>
+    </div>
+    <audio src="./sounds/1.mp3" class="snap" hidden></audio>
+    <script src="./script.js"></script>
+  </body>
+</html>

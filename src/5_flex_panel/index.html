@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Images</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="panels">
+      <div class="panel panel1"></div>
+      <div class="panel panel2"></div>
+      <div class="panel panel3"></div>
+      <div class="panel panel4"></div>
+      <div class="panel panel5"></div>
+    </div>
+    <canvas class="background"></canvas>
+    <audio autoplay loop>
+      <source src="./Sekai - Burn Me Down [NCS Release].mp3" type="audio/mpeg">
+    </audio>
+    <script>
+      const panels = document.querySelectorAll(".panel");
+      function toggleOpen() {
+        this.classList.toggle("open");
+      }
+      panels.forEach((panel) => panel.addEventListener("click", toggleOpen));
+      setInterval(() => {
+        var random = Math.floor(Math.random(panels.length) * panels.length);
+        console.log(random, panels.length);
+        panels[random].click();
+      }, 1000);
+    </script>
+    <script src="./particles.min.js"></script>
+    <script>
+      window.onload = function () {
+        Particles.init({
+          selector: ".background",
+          color: ["#ff0000", "#00ff00", "#0000ff", "#00ffff", "#ffff00", "#ff00ff"],
+          connectParticles: true,
+          sizeVariations: 25,
+          speed: 2,
+          responsive: [
+            {
+              breakpoint: 800,
+              options: {
+                maxParticles: 150,
+                speed: 0.5,
+                sizeVariations: 35,
+                connectParticles: false,
+              }
+            }
+          ]
+        });
+      };
+    </script>
+  </body>
+</html>

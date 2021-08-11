@@ -1,0 +1,122 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  padding: 2rem;
+  border: 1rem solid white;
+}
+.timer {
+  display: flex;
+  min-height: 90vh;
+  flex-direction: column;
+}
+.timer_controls {
+  display: flex;
+  border-bottom: 2px solid white;
+}
+.timer_controls > * {
+  font-size: 2rem;
+  font-family: "Courier New", Courier, monospace;
+  cursor: pointer;
+  flex: 1;
+}
+.timer_controls form {
+  flex: 1;
+  display: flex;
+}
+.timer_controls input {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2rem;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 2rem;
+  background-color: black;
+  border: 2px solid white;
+  color: white;
+  max-width: 100%;
+}
+.timer__button {
+  text-transform: capitalize;
+  background: white;
+  color: white;
+  border: 1px solid white;
+  padding: 8px 12px 8px 0;
+  /* box-shadow:0 0 0px 80px var(--c,white); */
+  background: linear-gradient(white 0 0) left/0 100% no-repeat;
+  clip-path: polygon(
+    -10px 0,
+    var(--x, -10px) 0,
+    var(--x, -10px) -15px,
+    calc(10px + var(--x, -10px)) -15px,
+    calc(10px + var(--x, -10px)) 0,
+    100% 0,
+    100% 100%,
+    calc(10px + var(--x, -10px)) 100%,
+    calc(10px + var(--x, -10px)) calc(100% + 15px),
+    var(--x, -10px) calc(100% + 15px),
+    var(--x, -10px) 100%,
+    -10px 100%
+  );
+  transition: 0.3s linear, box-shadow 0.2s 0.3s;
+}
+.timer__button:hover,
+.timer__button:focus {
+  background-color: black;
+  color: white;
+  --c: white;
+  color: black;
+  --x: calc(100% - 10px);
+  background-size: 100% 100%;
+  transition: 0.2s, clip-path linear 0.4s 0.2s, background-size linear 0.4s 0.2s,
+    color linear 0.4s 0.2s;
+}
+.display {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+.display_time-left {
+  font-weight: 500;
+  font-size: clamp(6rem, 10vw, 16rem);
+  color: white;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.05);
+}
+.display_end-time,
+.stop-sound {
+  font-size: clamp(2rem, 3vw, 5rem);
+  color: black;
+  background-color: white;
+}
+.stop-sound {
+  margin: 4rem auto;
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+
+@media (max-width: 950px) {
+  .timer {
+    flex-direction: column-reverse;
+  }
+  .timer_controls {
+    flex-direction: column-reverse;
+  }
+  .timer__button {
+    padding: 2rem;
+  }
+}

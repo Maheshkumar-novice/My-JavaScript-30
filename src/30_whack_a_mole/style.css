@@ -1,0 +1,133 @@
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  background: #ffc600;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  /* width: 100%; */
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: "Amatic SC", cursive;
+  /* overflow: hidden; */
+  /* padding: 2rem; */
+}
+h1 {
+  text-align: center;
+  font-size: clamp(5rem, 5vw, 10rem);
+  line-height: 1;
+  /* margin-top: 5rem; */
+  margin-bottom: 0;
+}
+.score {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0 3rem;
+  margin: auto 1rem;
+  line-height: 1;
+  border-radius: 1rem;
+}
+.game {
+  width: clamp(300px, 50vw, 600px);
+  height: clamp(200px, 50vw, 400px);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.hole {
+  flex: 1 0 33.33%;
+  overflow: hidden;
+  position: relative;
+}
+.hole:after {
+  display: block;
+  background: url(dirt.svg) center no-repeat;
+  background-size: contain;
+  content: "";
+  width: 100%;
+  height: 70px;
+  position: absolute;
+  z-index: 2;
+  bottom: -30px;
+}
+.mole {
+  background: url("mole.svg") bottom center no-repeat;
+  background-size: 60%;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s;
+}
+.hole.up .mole {
+  top: 0;
+}
+button {
+  /* position: absolute; */
+  padding: 1rem;
+  margin: 5rem auto;
+  width: 5em;
+  display: inline-block;
+  cursor: pointer;
+  background-color: inherit;
+  border: 1px solid black;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 2rem;
+  /* border-radius: 10px; */
+}
+button,
+.levels > *,
+.score {
+  box-shadow: 0px 10px 10px 0px black;
+}
+button:hover,
+.levels > *:hover {
+  box-shadow: 0px 5px 10px 0px black;
+}
+.ath {
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 50%; */
+  font-size: 2rem;
+  /* width: 10em; */
+  /* margin-top: 1rem; */
+  /* transform: translateX(-50%); */
+  text-align: center;
+}
+.levels {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 2rem;
+  /* margin-top: 2rem; */
+}
+.levels > * {
+  text-align: center;
+  /* flex: 1; */
+  cursor: pointer;
+  border: 1px solid black;
+  width: max-content;
+  padding: 0.25em 1em;
+}
+.current-level {
+  text-align: center;
+  font-size: 2rem;
+  width: max-content;
+  margin: 0 auto;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+body::-webkit-scrollbar {
+  width: 1em;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: black;
+  outline: 1px solid black;
+}

@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  max-width: 100vw;
+  height: 100vh;
+  font-size: 10px;
+}
+body {
+  width: 100%;
+  height: 100%;
+  padding: 10rem;
+  /* background: aqua; */
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.controls {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.5rem;
+}
+button {
+  position: absolute;
+  /* margin: 0 2rem; */
+}
+button:nth-child(2) {
+  margin: 0 10rem;
+}
+button:nth-child(3) {
+  margin: 0 20rem;
+}
+button:nth-child(4) {
+  margin: 0 30rem;
+}
+.photobooth {
+  background: white;
+  width: 60%;
+  border-radius: 2px;
+}
+.photo {
+  width: 100%;
+}
+.player {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.strip {
+  position: absolute;
+  width: 55%;
+  margin: 0 auto;
+  /* padding: 2rem; */
+}
+.strip img {
+  width: 100px;
+  overflow-x: scroll;
+  padding: 0.8rem 0.8rem 2.5rem 0.8rem;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  background: white;
+}
+.strip a:nth-child(5n + 1) img {
+  transform: rotate(10deg);
+}
+.strip a:nth-child(5n + 2) img {
+  transform: rotate(-2deg);
+}
+.strip a:nth-child(5n + 3) img {
+  transform: rotate(8deg);
+}
+.strip a:nth-child(5n + 4) img {
+  transform: rotate(-11deg);
+}
+.strip a:nth-child(5n + 5) img {
+  transform: rotate(12deg);
+}

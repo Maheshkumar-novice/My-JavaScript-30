@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Fun  |  Scribble 2</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <canvas id="game" width="800px" height="800px"></canvas>
+    <script src="./script.js"></script>
+    <script>
+      let coordX = 0;
+      let coordY = 0;
+      let moving = true;
+      function move() {
+        coordX += 20;
+        let ev = new MouseEvent("mousemove", {
+          view: window,
+          bubbles: true,
+          cancelable: true,
+          clientX: coordX,
+          clientY: coordY,
+        });
+        let ev1 = new MouseEvent("mousedown", {
+          view: window,
+          bubble: true,
+          cancelable: true,
+          clientX: coordX,
+          clientY: coordY,
+        });
+
+        document.querySelector("canvas").dispatchEvent(ev);
+        document.querySelector("canvas").dispatchEvent(ev1);
+        coordY = Math.floor(Math.random(canvas.height) * canvas.height);
+        while (coordY >= canvas.height) {
+          coordY = Math.floor(Math.random(canvas.height) * canvas.height);
+        }
+        if (coordX >= canvas.width) {
+          while (coordX >= canvas.width) {
+            coordX = Math.floor(Math.random(canvas.width) * canvas.width);
+          }
+        }
+        console.log(coordX, coordY);
+      }
+
+      // Starting to move
+      setInterval(move, 100);
+    </script>
+  </body>
+</html>

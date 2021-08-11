@@ -1,0 +1,77 @@
+:root {
+  font-size: 62.5%;
+}
+
+.container {
+  min-height: 100vh;
+  background: url(./bg2.jpg);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.key {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.75rem;
+  border: 5px solid rgba(0, 0, 0, 0);
+  border-radius: 1em;
+  width: 7em;
+  height: 6em;
+  padding: 1em;
+  transition: all 0.07s ease-in-out;
+}
+
+.key-name,
+.sound {
+  display: block;
+  text-align: center;
+  pointer-events: none;
+}
+
+.key-name {
+  font-size: 3rem;
+}
+
+.sound {
+  opacity: 0.5;
+}
+
+.playing {
+  border: 7px solid rgba(243, 127, 91, 1);
+  transform: scale(1.1);
+}
+
+.key::before {
+  content: "";
+  position: absolute;
+  transform: translate(-19%, -21%);
+  width: 7em;
+  height: 6em;
+  border: 5px solid;
+  border-radius: 1em;
+  animation: 1s infinite glow;
+}
+
+@keyframes glow {
+  25%,
+  75% {
+    border-left-color: blue;
+    border-bottom-color: red;
+    border-right-color: rgba(0, 0, 0, 0.2);
+    border-top-color: rgba(0, 0, 0, 0.2);
+  }
+  0%,
+  50%,
+  100% {
+    border-right-color: blue;
+    border-top-color: red;
+    border-left-color: rgba(0, 0, 0, 0.2);
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+  }
+}
